@@ -1,13 +1,23 @@
 import { CarTypes } from "../../types";
 import CustomButton from "../CustomButton";
+import { motion } from "framer-motion";
+import DetailModal from "../DetailModal";
+import { useState } from "react";
 
 type CarCardProps = {
   car: CarTypes;
 };
 
 const CarCard = ({ car }: CarCardProps) => {
+  const [isModalOpen, setIsModalOpen] = useState<boolean>(false);
+
   return (
-    <div className="car-card group">
+    <motion.div
+      initial={{ scale: 0.5, opacity: 0 }}
+      whileInView={{ scale: 1, opacity: 1 }}
+      transition={{ duration: 0.9, ease: "easeInOut" }}
+      className="car-card group"
+    >
       <h2 className="car-card__content-title">
         {car.make} {car.model}
       </h2>
@@ -51,10 +61,20 @@ const CarCard = ({ car }: CarCardProps) => {
           </div>
         </div>
         <div className="group-hover:flex hidden w-full">
-          <CustomButton title="More" styles="w-full" />
+          <CustomButton
+            title="More"
+            styles="w-full"
+            icon="/right-arrow.svg"
+            handleClick={() => setIsModalOpen(true)}
+          />
         </div>
       </div>
-    </div>
+      <DetailModal
+        car={car}
+        isModalOpen={isModalOpen}
+        close={() => setIsModalOpen(false)}
+      />
+    </motion.div>
   );
 };
 

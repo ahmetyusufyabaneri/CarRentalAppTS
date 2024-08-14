@@ -1,8 +1,12 @@
+import { MouseEventHandler } from "react";
+
 export type CustomButtonProps = {
   buttonType?: "button" | "reset" | "submit";
   styles?: string;
   title: string;
   isDisabled?: boolean;
+  icon?: string;
+  handleClick?: MouseEventHandler<HTMLButtonElement>;
 };
 
 export type CarTypes = {
