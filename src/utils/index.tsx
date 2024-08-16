@@ -11,13 +11,22 @@ const options = {
 type FiltersType = {
   make?: string;
   model?: string;
+  limit?: string;
+  fuel_type?: string;
+  year?: string;
 };
 
 export const fetchCars = async (filters: FiltersType): Promise<CarTypes[]> => {
-  const { make = "BMW", model = "" } = filters;
+  const {
+    make = "BMW",
+    model = "",
+    limit = "4",
+    fuel_type = "",
+    year = "",
+  } = filters;
 
   const res = await fetch(
-    `https://cars-by-api-ninjas.p.rapidapi.com/v1/cars?make=${make}&model=${model}`,
+    `https://cars-by-api-ninjas.p.rapidapi.com/v1/cars?make=${make}&model=${model}&limit=${limit}&fuel_type=${fuel_type}&year=${year}`,
     options
   );
 

@@ -55,22 +55,10 @@ export const years = [
 ];
 
 export const fuels = [
-  {
-    label: "farketmez",
-    value: "",
-  },
-  {
-    label: "Gaz",
-    value: "Gas",
-  },
-  {
-    label: "Elektrik",
-    value: "Electricity",
-  },
-  {
-    label: "Dizel",
-    value: "Diesel",
-  },
+  { label: "All", value: "" },
+  { label: "Auto Gas", value: "Auto Gas" },
+  { label: "Electricity", value: "Electricity" },
+  { label: "Diesel", value: "Diesel" },
 ];
 
 export const colors = [

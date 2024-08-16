@@ -2,6 +2,7 @@ import ReactSelect from "react-select";
 import { makes } from "../../constants";
 import { FormEvent, useMemo, useState } from "react";
 import { useSearchParams } from "react-router-dom";
+import { OptionsType } from "../../types";
 
 const SearchButton = ({ styles }: { styles: string }) => (
   <button className={`ml-3 z-10 ${styles}`}>
@@ -13,11 +14,6 @@ const SearchBar = () => {
   const [model, setModel] = useState<string>("");
 
   const [searchParams, setSearchParams] = useSearchParams();
-
-  type OptionsType = {
-    value: string;
-    label: string;
-  };
 
   const options: OptionsType[] = useMemo(
     () =>

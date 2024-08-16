@@ -23,3 +23,8 @@ export type CarTypes = {
   transmission: "automatic" | "manual";
   year: number;
 };
+
+export type OptionsType = {
+  value: string;
+  label: string;
+};

@@ -4,15 +4,19 @@ import CustomButton from "../CustomButton";
 const ShowMore = () => {
   const [searchParams, setSearchParams] = useSearchParams();
 
-  const limitParam = Number(searchParams.get("limit")) || 5;
+  const limitParam = Number(searchParams.get("limit")) || 4;
 
   const handleLimit = () => {
-    const newLimit = limitParam + 5;
-    console.log(newLimit);
+    const newLimit = String(limitParam + 4);
+
+    searchParams.set("limit", newLimit);
+    setSearchParams(searchParams);
   };
   return (
     <div className="w-full flex-center gap-4 my-8">
-      <CustomButton handleClick={handleLimit} title="Show More" />
+      {limitParam < 32 && (
+        <CustomButton handleClick={handleLimit} title="Show More" />
+      )}
     </div>
   );
 };

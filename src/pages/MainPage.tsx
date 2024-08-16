@@ -1,5 +1,4 @@
 import { useEffect, useState } from "react";
-import FilterArea from "../components/FilterArea";
 import Hero from "../components/Hero";
 import SearchBar from "../components/SearchBar";
 import { fetchCars } from "../utils";
@@ -7,6 +6,8 @@ import { CarTypes } from "../types";
 import CarList from "../components/CarList";
 import { useSearchParams } from "react-router-dom";
 import ShowMore from "../components/ShowMore";
+import FilterInput from "../components/FilterInput";
+import { fuels, years } from "../constants";
 
 const MainPage = () => {
   const [cars, setCars] = useState<CarTypes[] | []>([]);
@@ -31,8 +32,16 @@ const MainPage = () => {
         <div className="home__filters">
           <SearchBar />
           <div className="home__filter-container">
-            <FilterArea />
-            <FilterArea />
+            <FilterInput
+              options={fuels}
+              placeholder="Fuel Type"
+              parameter={"fuel_type"}
+            />
+            <FilterInput
+              options={years}
+              placeholder="Year"
+              parameter={"year"}
+            />
           </div>
         </div>
         <CarList cars={cars} isError={isError} />
