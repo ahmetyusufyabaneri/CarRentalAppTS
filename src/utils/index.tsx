@@ -8,9 +8,16 @@ const options = {
   },
 };
 
-export const fetchCars = async (): Promise<CarTypes[]> => {
+type FiltersType = {
+  make?: string;
+  model?: string;
+};
+
+export const fetchCars = async (filters: FiltersType): Promise<CarTypes[]> => {
+  const { make = "BMW", model = "" } = filters;
+
   const res = await fetch(
-    "https://cars-by-api-ninjas.p.rapidapi.com/v1/cars?model=corolla",
+    `https://cars-by-api-ninjas.p.rapidapi.com/v1/cars?make=${make}&model=${model}`,
     options
   );
 
