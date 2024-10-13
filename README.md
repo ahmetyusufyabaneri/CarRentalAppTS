@@ -1,6 +1,6 @@
 <h1>Car Rental App</h1>
 
-<p>car rental app</p>
+<p>This project is a car rental application developed with React and Typescript. Users can view cars, access car details and rent cars.</p>
 
 <h2>Used Technologies</h2>
 
