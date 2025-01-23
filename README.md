@@ -10,6 +10,7 @@
 <li>framer-motion</li>
 <li>react-router-dom</li>
 <li>react-select</li>
+<li>tailwindcss</li>
 
 </ul>
 
